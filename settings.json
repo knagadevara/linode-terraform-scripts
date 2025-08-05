@@ -1,0 +1,5 @@
+{
+  "terraform.languageServer.enable": true,
+  "terraform.languageServer.path": "/opt/homebrew/bin/tofu",
+  "editor.formatOnSave": true
+}
