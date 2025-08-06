@@ -1,6 +1,6 @@
 variable "default_prefix" {
   type    = string
-  default = "TEST-"
+  default = "TEST-CREACT"
 }
 
 variable "k8s_instances" {
@@ -15,7 +15,7 @@ variable "cluster_region" {
 
 variable "tag_list" {
   type    = list(string)
-  default = ["1", "2", "NON-PRODUCTION"]
+  default = ["CREACT", "EMPLOYEE", "NON-PRODUCTION"]
 }
 
 variable "vlan_subnet" {
@@ -40,7 +40,7 @@ variable "linode_image" {
 
 variable "ssh_key_path" {
   type    = string
-  default = "~/.ssh/<key>.pub"
+  default = "~/.ssh/LinodeGeneralSSH.pub"
 }
 
 variable "alerts" {
@@ -56,7 +56,7 @@ variable "alerts" {
 
 variable "authorized_users" {
   type    = list(string)
-  default = ["user"]
+  default = ["snagadev"]
 }
 
 variable "instance_type" {
@@ -73,5 +73,16 @@ variable "ip_address" {
   default = {
     ipv4 = ""
     ipv6 = ""
+  }
+}
+
+variable "cld_profile" {
+  type = object({
+  config_profile = string
+  config_path    = string
+  })
+  default = {
+      config_profile = "snagadev"
+  config_path    = "/Users/snagadev/.config/linode.cfg"
   }
 }
