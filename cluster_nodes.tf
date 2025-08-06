@@ -25,7 +25,7 @@ resource "linode_instance" "cluster_node" {
     purpose   = "vpc"
     primary   = true
     subnet_id = linode_vpc_subnet.maa1_private.id
-    }
+  }
 
   interface {
     purpose   = "vlan"

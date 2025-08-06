@@ -8,6 +8,6 @@ terraform {
 }
 
 provider "linode" {
-  config_profile = "default"
-  config_path    = "~/.config/linode.cfg"
+  config_profile = var.cld_profile.config_profile
+  config_path    = var.cld_profile.config_path
 }
