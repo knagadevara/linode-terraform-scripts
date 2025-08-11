@@ -30,3 +30,36 @@ resource "linode_firewall" "bastion_ssh_rule" {
   outbound_policy = "ACCEPT"
   tags            = var.tag_list
 }
+
+resource "linode_firewall" "http" {
+  label      = "${var.default_prefix}-WEB-HTTP-FW"
+  inbound {
+    label       = "HTTP"
+    action      = "ACCEPT"
+    description = "default http"
+    protocol    = "TCP"
+    ports       = 80
+    ipv4        = ["0.0.0.0/0"]
+    ipv6        = ["::/0"]
+  }
+  inbound_policy  = "DROP"
+  outbound_policy = "ACCEPT"
+  tags            = var.tag_list
+}
+
+resource "linode_firewall" "https" {
+  label      = "${var.default_prefix}-WEB-HTTPS-FW"
+  inbound {
+    label       = "HTTPS"
+    action      = "ACCEPT"
+    description = "Secure Web"
+    protocol    = "TCP"
+    ports       = 443
+    ipv4        = ["0.0.0.0/0"]
+    ipv6        = ["::/0"]
+  }
+  inbound_policy  = "DROP"
+  outbound_policy = "ACCEPT"
+  tags            = var.tag_list
+}
+
