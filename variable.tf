@@ -61,7 +61,12 @@ variable "authorized_users" {
 
 variable "instance_type" {
   type        = string
-  default     = "g6-standard-1"
+  default     = "g6-standard-4"
+  description = "Standard Available type"
+}
+variable "jump_type" {
+  type        = string
+  default     = "g6-nanode-1"
   description = "Standard Available type"
 }
 

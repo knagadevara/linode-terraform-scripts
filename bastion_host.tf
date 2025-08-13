@@ -12,7 +12,7 @@ resource "linode_instance" "bastion_host" {
   image            = var.linode_image
   authorized_keys  = [tostring(data.linode_sshkey.defaultKey.ssh_key)]
   authorized_users = var.authorized_users
-  type             = var.instance_type
+  type             = var.jump_type
   placement_group {
     id = linode_placement_group.af_pg.id
   }
